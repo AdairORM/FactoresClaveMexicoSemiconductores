@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factores Clave: Semiconductores en México</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+            color: #1f2937; /* Tailwind gray-800 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .chart-container {
+            width: 90%;
+            max-width: 800px; /* Aumentado para mejor visualización */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #111827; /* Tailwind gray-900 */
+            text-align: center;
+        }
+        .analysis-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        strong {
+            color: #059669; /* Tailwind emerald-600 */
+        }
+        /* Estilos para responsividad del canvas */
+        canvas {
+            max-width: 100%;
+            height: auto !important; /* Importante para mantener el aspect ratio */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <h1 class="text-3xl font-bold text-gray-800 my-6">Factores Clave y su Relación con el Desarrollo de Semiconductores en México</h1>
+
+    <div class="chart-container">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+    <div class="analysis-container">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Análisis de Interdependencias</h2>
+        <p>Esta gráfica de radar ilustra la importancia y el estado actual (o deseado) de diversos factores cruciales para el éxito del programa de desarrollo de semiconductores en México, como la iniciativa "Kutsari". Cada eje representa un factor clave, y la extensión del área coloreada hacia el perímetro del eje indica una mayor importancia o un mejor estado de dicho factor. La interconexión de estos puntos subraya cómo el avance en un área puede influir positivamente en otras, y viceversa.</p>
+
+        <p><strong>Causas y Consecuencias de Fortalezas y Debilidades:</strong></p>
+        <ul>
+            <li><p><strong>Barreras Internas:</strong> La <strong>baja cantidad de patentes y propiedad intelectual</strong>, junto con la necesidad de <strong>desarrollo de talento y mano de obra calificada</strong>, representan desafíos internos significativos. La escasez de patentes puede limitar la innovación y la competitividad a largo plazo, mientras que la falta de personal capacitado puede obstaculizar la implementación y operación eficiente de las nuevas instalaciones. Abordar estos puntos es fundamental para construir una base sólida para la industria.</p></li>
+            <li><p><strong>Oportunidades Externas:</strong> La tensión geopolítica entre <strong>EE.UU. y China</strong>, aunque presenta riesgos, también abre una ventana de oportunidad para México. El país puede posicionarse como una alternativa segura y confiable para la cadena de suministro de semiconductores de América del Norte (nearshoring), atrayendo <strong>inversión extranjera y nacional</strong>.</p></li>
+            <li><p><strong>Infraestructura Crítica:</strong> Factores como la <strong>infraestructura hídrica y energética</strong> son vitales. La industria de semiconductores es intensiva en el uso de agua y requiere un suministro eléctrico estable y continuo. Deficiencias en estas áreas no solo podrían frenar el desarrollo, sino también generar conflictos sociales y ambientales. Un plan integral para asegurar estos recursos es imprescindible.</p></li>
+            <li><p><strong>Entorno Habilitador:</strong> Un <strong>ecosistema industrial y tecnológico</strong> robusto, que fomente la colaboración entre empresas, universidades y centros de investigación, es crucial para la innovación y la transferencia de conocimiento. De igual manera, <strong>políticas industriales e incentivos</strong> claros, como beneficios fiscales y regulatorios, son necesarios para atraer y retener inversiones.</p></li>
+            <li><p><strong>Ubicación Estratégica:</strong> La selección de sedes como <strong>Jalisco</strong> (con un 70% del mercado nacional actual), <strong>Aguascalientes</strong> (laboratorio), <strong>Sonora</strong> (centro de diseño) y <strong>Nuevo León</strong> (oportunidad estratégica) demuestra un enfoque distribuido que busca aprovechar las fortalezas regionales. El éxito dependerá de la coordinación y especialización efectiva de cada sede.</p></li>
+        </ul>
+        <p><strong>Impacto General:</strong> La evolución de estos factores, ya sea positiva o negativa, tendrá un impacto directo en el desarrollo económico, político y social de México. Un programa exitoso de semiconductores podría generar empleos de alta calidad, impulsar la innovación tecnológica, fortalecer la soberanía tecnológica del país y mejorar su posición en la economía global. Por el contrario, el fracaso en la gestión integral de estos elementos podría resultar en la pérdida de una oportunidad estratégica significativa.</p>
+        <p>El análisis integral de estos factores y sus interdependencias es esencial para que el programa "Kutsari" y otras iniciativas similares alcancen sus objetivos, contribuyendo así al desarrollo sostenible y a largo plazo de México en el competitivo sector de los semiconductores.</p>
+    </div>
+
+    <script>
+        // Datos para la gráfica de radar
+        // Se asignan valores de ejemplo (1-5, donde 5 es más alto/mejor) ya que no se proveyeron datos cuantitativos.
+        // Estos valores pueden ser ajustados.
+        const data = {
+            labels: [
+                'Inversión Extranjera/Nacional',
+                'Desarrollo de Talento/Mano de Obra Calificada',
+                'Patentes y Propiedad Intelectual',
+                'Infraestructura Hídrica',
+                'Infraestructura Energética',
+                'Relaciones Geopolíticas (EE.UU./China)',
+                'Ecosistema Industrial y Tecnológico',
+                'Políticas Industriales e Incentivos',
+                'Ubicación Estratégica (Sedes)'
+            ],
+            datasets: [{
+                label: 'Importancia / Estado Actual (Ejemplo)',
+                // Valores de ejemplo (escala 1-5). Estos deben ser ajustados según datos reales o percepciones expertas.
+                data: [4, 3, 2, 3, 3, 4, 3, 4, 5], // Ejemplo: Inversión (4), Talento (3), Patentes (2), etc.
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Azul claro con transparencia
+                borderColor: 'rgb(54, 162, 235)', // Azul sólido
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(54, 162, 235)'
+            }]
+        };
+
+        // Configuración de la gráfica
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true, // Ajustado para mejor responsividad
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 5, // Escala de 0 a 5
+                        ticks: {
+                            stepSize: 1, // Pasos de 1 en 1 en la escala radial
+                            backdropColor: 'rgba(255, 255, 255, 0.75)', // Fondo para mejor legibilidad de los ticks
+                             font: {
+                                size: 10 // Tamaño de fuente para los números de la escala
+                            }
+                        },
+                        pointLabels: {
+                           font: {
+                                size: 11 // Tamaño de fuente para las etiquetas de los ejes
+                            },
+                            // Para manejar etiquetas largas, se puede usar una función para acortarlas o dividirlas
+                            // Por ejemplo, para dividir etiquetas muy largas:
+                            // callback: function(label) {
+                            //     if (label.length > 15) {
+                            //         return label.match(/.{1,15}/g); // Divide en líneas de máx 15 caracteres
+                            //     }
+                            //     return label;
+                            // }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                             font: {
+                                size: 14 // Tamaño de fuente para la leyenda
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.r !== null) {
+                                    label += context.parsed.r.toFixed(1) + ' / 5';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Renderizar la gráfica
+        const radarChart = new Chart(
+            document.getElementById('radarChart'),
+            config
+        );
+
+        // Ajustar tamaño del canvas en resize para mejor responsividad
+        window.addEventListener('resize', () => {
+            radarChart.resize();
+        });
+    </script>
+
+</body>
+</html>
